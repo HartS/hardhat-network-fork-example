@@ -2,7 +2,7 @@ require("@nomicfoundation/hardhat-toolbox");
 dotenv = require('dotenv')
 dotenv.config()
 
-const { ALCHEMY_API_KEY } = process.env
+const { ALCHEMY_API_KEY, FORK_BLOCK } = process.env
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
@@ -16,14 +16,14 @@ module.exports = {
       chainId: 31336,
       forking: {
         url: `https://eth-mainnet.alchemyapi.io/v2/${ALCHEMY_API_KEY}`,
-        blockNumber: 15645012,
+        blockNumber: FORK_BLOCK || 15645012,
       },
     },
     "hardhat": {
       chainId: 31336,
       forking: {
         url: `https://eth-mainnet.alchemyapi.io/v2/${ALCHEMY_API_KEY}`,
-        blockNumber: 15645012,
+        blockNumber: FORK_BLOCK || 15645012,,
       },
     },
   },
